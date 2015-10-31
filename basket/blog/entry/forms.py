@@ -8,18 +8,8 @@ from .models import Blog_Entry
 from django.contrib.auth.forms import UserChangeForm
 
 class UserForm(forms.ModelForm):
-    #def __init__(self, *args, **kwargs):
-    #    super(UserForm, self).__init__(*args, **kwargs)
-    #    self.helper = FormHelper()
-    #    self.helper.layout = Layout(
-    #        Fieldset(
-    #            'username',
-    #            'password',
-    #        ),
-    #        ButtonHolder(
-    #            Submit('submit', 'Submit', css_class='button white')
-    #        )
-    #    )
+    password = forms.CharField(max_length=32, widget=forms.PasswordInput)
+
     class Meta:
         model = User
         fields = (

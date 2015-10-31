@@ -7,7 +7,7 @@
     <nav class="blog-nav">
       <a class="blog-nav-item active" href="{% url 'blog' %}">Home</a>
       <a class="blog-nav-item " href="{% url 'blog_edit' %}">Athor</a>
-      <a class="blog-nav-item" href="#">About</a>
+      <a class="blog-nav-item" href="{% url 'about' %}">About</a>
 
 
     </nav>
@@ -35,7 +35,7 @@
         <p class="blog-post-meta">{{post.pub_date}} by VIVEKSS</p>
         <p>{{post.body_text}}</p>
       <nav>
-      
+
       </nav>
 
     </div><!-- /.blog-main -->
@@ -50,15 +50,7 @@
 
         </ol>
       </div>
-      <div class="sidebar-module">
-        <h4>Elsewhere</h4>
-        <ol class="list-unstyled">
-          <li><a href="#">GitHub</a></li>
-          <li><a href="#">Twitter</a></li>
-          <li><a href="#">Facebook</a></li>
-        </ol>
-      </div>
-    </div><!-- /.blog-sidebar -->
+
 
   </div><!-- /.row -->
 

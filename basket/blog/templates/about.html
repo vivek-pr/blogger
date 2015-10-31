@@ -5,9 +5,9 @@
 <div class="blog-masthead">
   <div class="container">
     <nav class="blog-nav">
-      <a class="blog-nav-item active" href="{% url 'blog' %}">Home</a>
+      <a class="blog-nav-item " href="{% url 'blog' %}">Home</a>
       <a class="blog-nav-item " href="{% url 'blog_edit' %}">writer</a>
-      <a class="blog-nav-item" href="{% url 'about' %}">About</a>
+      <a class="blog-nav-item active" href="{% url 'about' %}">About</a>
 
 
     </nav>
@@ -25,22 +25,22 @@
     <p class="lead blog-description">A place for reading articles.</p>
   </div>
 
-  <div class="row">
+  <div class="col-sm-8 blog-main">
 
-    <div class="col-sm-8 blog-main">
+    <div class="blog-post">
+      <h2 class="blog-post-title">Steps to use this blog</h2>
+      <p class="blog-post-meta"> VIVEK</p>
+      <p>
+        If You are a author u have to click on writer menu and provide your credententials.
 
+        After writing a  article wait for admin approval.
 
+      </p>
+    <nav>
 
-    <div class="col-sm-12 col-sm-offset-1 blog-sidebar">
-      <div class="sidebar-module">
-        <h4>Archives</h4>
-        <ol class="list-unstyled">
-          {% for blog in value%}
-          <li><a href={{blog.slug}}>{{blog.headline}}</a></li>
-          {%endfor%}
+    </nav>
 
-        </ol>
-      </div>
+  </div>
 
 
   </div><!-- /.row -->

@@ -54,3 +54,7 @@ def blog(request):
     d = date.today() - timedelta(days=1)
     value=Blog_Entry.objects.filter(approved=True).filter(visited_date__gte=d)
     return render(request,'blog_log.html',{'value':value})
+
+
+def about(request):
+    return render(request,'about.html',{})

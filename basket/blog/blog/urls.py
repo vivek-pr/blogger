@@ -21,7 +21,7 @@ from entry import views
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-
+    url(r'^about$',views.about,name='about'),
     url(r'^add$',views.add,name='blog_edit'),
     url(r'^$',views.blog,name='blog'),
 
