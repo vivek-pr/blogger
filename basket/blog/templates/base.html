@@ -1,0 +1,41 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="blog">
+    <meta name="author" content="vivek">
+    <link rel="icon" href="{% static 'image/images.ico' %}">
+
+    <title>{%block title%}Blog Template for Bootstrap{%endblock%}</title>
+
+ {% include 'css.html'%}
+
+  </head>
+
+  <body>
+{%block header%}
+<div class="blog-masthead">
+  <div class="container">
+    <nav class="blog-nav">
+      <a class="blog-nav-item" href="{% url 'blog' %}">Home</a>
+      <a class="blog-nav-item active" href="{% url 'blog_edit' %}">writer</a>
+      <a class="blog-nav-item" href="#">About</a>
+
+
+    </nav>
+
+  </div>
+
+</div>
+    {%endblock%}
+{%block content%}
+{%endblock%}
+
+
+ {% include 'js.html'%}
+  </body>
+</html>

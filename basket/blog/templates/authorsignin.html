@@ -1,0 +1,33 @@
+{%extends "base.html"%}
+{% load crispy_forms_tags %}
+{% crispy form %}
+{%block title%}data dispaly{%endblock%}
+
+{%block header%}
+<div class="blog-masthead">
+  <div class="container">
+    <nav class="blog-nav">
+      <a class="blog-nav-item " href="{% url 'blog' %}">Home</a>
+      <a class="blog-nav-item active" href="{% url 'blog_edit' %}">writer</a>
+      <a class="blog-nav-item" href="#">About</a>
+
+
+    </nav>
+
+  </div>
+
+</div>
+    {%endblock%}
+
+    {%block content%}
+{{message}}
+    <form class="form-group" method="POST" action="/">
+      {% csrf_token %}
+    {{form|crispy}}
+    <input type="submit" class="btn btn-primary btn-block" value="Sign In">
+
+
+    </form>
+
+
+    {% endblock %}
