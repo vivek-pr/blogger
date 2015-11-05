@@ -3,15 +3,16 @@ from .models import Blog_Entry
 from .forms import AddForm,UserForm
 from django.contrib.auth import authenticate
 from datetime import date, timedelta
-
+from django.contrib.auth.models import User
 
 def entry(request, slug):
     post = get_object_or_404(Blog_Entry, slug=slug)
     d = date.today() - timedelta(days=1)
     value=Blog_Entry.objects.filter(approved=True).filter(visited_date__gte=d)
     post.update()
+    user=post.writer.username
     return render(request, 'detail_blog.html', {
-        'post': post,'value':value
+        'post': post,'value':value,'user':user
     })
 
 def add(request):
@@ -19,7 +20,8 @@ def add(request):
         if request.method == 'POST':
             form = AddForm(request.POST)
             if form.is_valid():
-                entry = form.save()
+                user=request.session['user']
+                entry = form.save(user)
                 d = date.today() - timedelta(days=1)
                 value=Blog_Entry.objects.filter(approved=True).filter(visited_date__gte=d)
                 return render(request,'blog_log.html',{'value':value})
@@ -43,7 +45,6 @@ def blog(request):
             request.session['user']=form.data['username']
             return render(request,'entry.html',{'form': AddForm(),})
         else:
-            print('user invalid')
             message='You are not authorized to write please read articles'
             return render(request,'authorsignin.html',{'form':UserForm(),'message':message})
 

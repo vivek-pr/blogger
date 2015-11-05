@@ -8,18 +8,13 @@ import django.utils.timezone
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('entry', '0003_auto_20151028_1713'),
+        ('entry', '0004_auto_20151105_1811'),
     ]
 
     operations = [
         migrations.AlterField(
             model_name='blog_entry',
-            name='body_text',
-            field=models.TextField(),
-        ),
-        migrations.AlterField(
-            model_name='blog_entry',
             name='visited_date',
-            field=models.DateTimeField(default=django.utils.timezone.now),
+            field=models.DateTimeField(verbose_name='tracking for deactiavation', default=django.utils.timezone.now),
         ),
     ]

@@ -25,7 +25,7 @@ urlpatterns = [
     url(r'^add$',views.add,name='blog_edit'),
     url(r'^$',views.blog,name='blog'),
 
-    url(r'^(?P<slug>[\w-]+)/$', views.entry, name='detail'),
+    url(r'^(?P<slug>[\w-]+)$', views.entry, name='detail'),
 
 
 

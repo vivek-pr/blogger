@@ -42,7 +42,7 @@ class AddForm(forms.ModelForm):
 
 
 
-    def save(self):
+    def save(self,user):
         instance = super(AddForm, self).save(commit=False)
 
         max_length = Blog_Entry._meta.get_field('slug').max_length
@@ -54,7 +54,5 @@ class AddForm(forms.ModelForm):
 
             # Truncate the original slug dynamically. Minus 1 for the hyphen.
             instance.slug = "%s-%d" % (orig[:max_length - len(str(x)) - 1], x)
-
-        instance.save()
-
+        instance.Save(user)
         return instance
