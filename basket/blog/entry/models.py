@@ -24,7 +24,7 @@ class Blog_Entry(models.Model):
         self.save()
 
     def  Save ( self , user, * args , ** kwargs ):
-        self .snippet =  self .snippet or  self .content [: 140 ]
+        self .snippet =  self .snippet or  self .body_text [: 140 ]
         self.writer= User.objects.get(username=user)
         super (Blog_Entry, self ) .save ( * args, ** kwargs)
 
